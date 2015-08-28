@@ -27,7 +27,7 @@
         // var img = document.getElementById("img");
 	//console.log('stream ended, binary data complete');
         img.src = (window.URL || window.webkitURL).createObjectURL(new Blob(parts));
-	setTimeout(function() {client.send("ping")}, 200);
+	setTimeout(function() {client.send("ping")}, 100);
 	// console.log('pinging server to reinitiate stream');
       });
     });
