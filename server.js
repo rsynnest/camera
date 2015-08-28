@@ -7,7 +7,7 @@ server.on('connection', function(client){
   console.log('connection made');
   client.on('stream', function(s) {
     var stream = client.createStream();
-    var file = fs.createReadStream(__dirname + '/webcam.jpg');
+    var file = fs.createReadStream(__dirname + '/live-webcam.jpg');
     file.pipe(stream);
   });
 });
