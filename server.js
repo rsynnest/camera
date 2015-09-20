@@ -32,7 +32,7 @@ var server = BinaryServer({port: 9000});
 console.log('binary socket server started');
 server.on('connection', function(client){ // called when a client connects
   console.log('connection made');
-  // When client pings (every 0.1 seconds), take another picture and send it to the client
+  // When client pings (every 0.5 seconds), take another picture and send it to the client
   client.on('stream', function(s) {
     var stream = client.createStream();
     child = exec('./camera.sh',
