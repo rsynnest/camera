@@ -21,7 +21,7 @@ var util = require('util'),
     child;
 
 // Save an archive of video feed (one image every 3 seconds)
-child = exec('archive.sh',
+child = exec('./archive.sh',
         function (error, stdout, stderr) {
             if (error !== null) {
                 console.log('exec error: ' + error);
@@ -35,7 +35,7 @@ server.on('connection', function(client){ // called when a client connects
   // When client pings (every 0.1 seconds), take another picture and send it to the client
   client.on('stream', function(s) {
     var stream = client.createStream();
-    child = exec('camera.sh',
+    child = exec('./camera.sh',
         function (error, stdout, stderr) {
 	    if (error !== null) {
                 console.log('exec error: ' + error);
