@@ -1,18 +1,16 @@
 # Binary.js Web Camera 
-This is a simple webcam / security camera thing.  
-It uses fswebcam to snap a picture every 0.1 seconds, then uses binary.js websockets and a small node web server to send binary image data to a hosted page every 0.1 seconds.
+This is a simple webcam image streaming thing.  
+It uses binary.js websockets to stream images from server to client, sending a webcam image every 0.1 seconds.
+It runs on a basic node express server, so all that's required to run is node and the node modules listed below.
 
 ## Dependencies
-- node.js  
-- binary.js  
+- node.js
+  - binary.js `npm install binaryjs`
+  - express.js `npm install express --save`  
 - fswebcam  
-
-Assumes webcam is located at /dev/video0 with resolution of 320x240  
+  - scripts assume webcam is located at /dev/video0
 
 ## To Run
-- run `nohup ./camera.sh 0<&- &>/dev/null &`
-  - this script makes the webcam take a picture every 0.1sec and saves it to live-webcam.jpg
-  - it also saves a backlog of images at webcam-%s.jpg every 3 esconds
-- visit <server>/camera/index.html to see your webcam's 'video' feed, where <server> is the server running the script
-
+- run `node server.js` to view output, or if you prefer to run the server as a background job you can run `nohup node server.js 0<&- &>/dev/null &`
+- visit <server-ip>:3000 to see your webcam's 'video' feed
 
