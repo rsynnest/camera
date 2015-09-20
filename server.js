@@ -1,4 +1,4 @@
-// Start Express web server
+// Express web server
 var express = require('express');
 var app = express();
 
@@ -13,30 +13,36 @@ var webserver = app.listen(3000, function () {
     console.log('express web server started');
 });
 
-// Start Binary Web Socket server
+// BinaryJS Socket server
 var BinaryServer = require('binaryjs').BinaryServer;
 var fs = require('fs');
 var util = require('util'),
     exec = require('child_process').exec,
     child;
-    
+
+// Save an archive of video feed (one image every 3 seconds)
+child = exec('archive.sh',
+        function (error, stdout, stderr) {
+            if (error !== null) {
+                console.log('exec error: ' + error);
+            }
+        });
 
 var server = BinaryServer({port: 9000});
 console.log('binary socket server started');
-server.on('connection', function(client){
+server.on('connection', function(client){ // called when a client connects
   console.log('connection made');
-  // When client pings, take another picture and send it to the client
+  // When client pings (every 0.1 seconds), take another picture and send it to the client
   client.on('stream', function(s) {
     var stream = client.createStream();
-    // Call camera script to snap a live image and an archive image
-    child = exec('./camera.sh',
+    child = exec('camera.sh',
         function (error, stdout, stderr) {
 	    if (error !== null) {
                 console.log('exec error: ' + error);
             }
 	});
     var file = fs.createReadStream(__dirname + '/live-webcam.jpg');
-    // Pipe image file to client
+    // send image file to client
     file.pipe(stream);
   });
 });
