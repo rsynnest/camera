@@ -13,7 +13,7 @@ It runs on a basic node express server, so all that's required to run is fswebca
 
 ## To Run
 - run `node server.js` to view output, or if you prefer to run the server as a background job you can run `nohup node server.js 0<&- &>/dev/null &`
-- visit <server-ip>:3000 to see your webcam's 'video' feed
+- visit \<server-ip\>:3000 to see your webcam's 'video' feed
 
 ## To Do
 - implement motion detection by comparing previous two captures, only archive when motion is detected.
