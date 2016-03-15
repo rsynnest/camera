@@ -17,5 +17,5 @@ It runs on a basic node express server, so all that's required to run is fswebca
 
 ## To Do
 - implement motion detection by comparing previous two captures, only archive when motion is detected.
-- add machine learning to detect humans/faces ? (likely overkill, motion is enough)
+- add face or human detection? (likely overkill, motion is enough)
 - daemonize
