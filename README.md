@@ -12,7 +12,7 @@ It runs on a basic node express server, so all that's required to run is fswebca
   - all scripts assume the webcam is located at /dev/video0 (fswebcam default)
 
 ## To Run
-- run `node server.js` to view output, or if you prefer to run the server as a background job you can run `nohup node server.js 0<&- &>/dev/null &`
+- run `node server.js` to view output, or if you prefer to run the server as a background job you can run `nohup node server.js > /dev/null 2>&1 &`
 - visit \<server-ip\>:3000 to see your webcam's 'video' feed
 
 ## To Do
