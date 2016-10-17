@@ -1,6 +1,6 @@
 # Binary.js Web Camera 
-This is a simple webcam image streaming mini app.  
-It uses binary.js websockets to stream images from server to client, sending a webcam image every 0.5 seconds.
+This is a simple webcam image streaming applet.  
+It uses binary.js websockets to stream images from a server to a client, sending a webcam image every 0.5 seconds (configurable).
 It runs on a basic node express server, so all that's required to run is fswebcam, node and the 2 node modules listed below.
 
 ## Dependencies
